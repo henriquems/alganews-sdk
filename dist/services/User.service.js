@@ -25,24 +25,16 @@ var UserService = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     UserService.getAllEditors = function () {
-        return this.Http
-            .get('/users/editors')
-            .then(this.getData);
+        return this.Http.get('/users/editors').then(this.getData);
     };
     UserService.getExistingEditor = function (editorId) {
-        return this.Http
-            .get("/users/editors/" + editorId)
-            .then(this.getData);
+        return this.Http.get("/users/editors/" + editorId).then(this.getData);
     };
     UserService.getDetailedUser = function (userId) {
-        return this.Http
-            .get("/users/" + userId)
-            .then(this.getData);
+        return this.Http.get("/users/" + userId).then(this.getData);
     };
     UserService.getAllUsers = function () {
-        return this.Http
-            .get('/users')
-            .then(this.getData);
+        return this.Http.get('/users').then(this.getData);
     };
     UserService.updateExistingUser = function (userId, userData) {
         return this.Http.put("/users/" + userId, userData).then(this.getData);
