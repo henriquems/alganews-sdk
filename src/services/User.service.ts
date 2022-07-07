@@ -2,28 +2,28 @@ import { User } from "../@types";
 import Service from "../Service";
 
 class UserService extends Service {
-  static getAllEditors () {
-    return this.Http
-      .get<User.EditorSummary[]>('/users/editors')
-      .then(this.getData)
+  static getAllEditors() {
+    return this.Http.get<User.EditorSummary[]>(
+      '/users/editors'
+    ).then(this.getData);
   }
 
-  static getExistingEditor (editorId: number) {
-    return this.Http
-      .get<User.EditorDetailed>(`/users/editors/${editorId}`)
-      .then(this.getData)
+  static getExistingEditor(editorId: number) {
+    return this.Http.get<User.EditorDetailed>(
+      `/users/editors/${editorId}`
+    ).then(this.getData);
   }
 
-  static getDetailedUser (userId: number) {
-    return this.Http
-      .get<User.Detailed>(`/users/${userId}`)
-      .then(this.getData)
+  static getDetailedUser(userId: number) {
+    return this.Http.get<User.Detailed>(
+      `/users/${userId}`
+    ).then(this.getData);
   }
 
   static getAllUsers() {
-    return this.Http
-      .get<User.Summary[]>('/users')
-      .then(this.getData)
+    return this.Http.get<User.Summary[]>('/users').then(
+      this.getData
+    );
   }
 
   static updateExistingUser(
@@ -53,7 +53,7 @@ class UserService extends Service {
     return this.Http.delete<{}>(
       `/users/${userId}/activation`
     ).then(this.getData);
-  }  
+  }
 }
 
 export default UserService

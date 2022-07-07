@@ -27,29 +27,25 @@ var PostService = /** @class */ (function (_super) {
     }
     PostService.getAllPosts = function (search) {
         var queryString = generateQueryString_1.default(search);
-        return this.Http
-            .get('/posts'.concat(queryString))
-            .then(this.getData);
+        return this.Http.get('/posts'.concat(queryString)).then(this.getData);
     };
     PostService.getExistingPost = function (id) {
-        return this.Http
-            .get("/posts/" + id)
-            .then(this.getData);
+        return this.Http.get("/posts/" + id).then(this.getData);
     };
     PostService.insertNewPost = function (post) {
-        return this.Http
-            .post('/posts', post)
-            .then(this.getData);
+        return this.Http.post('/posts', post).then(this.getData);
     };
     PostService.publishExistingPost = function (postId) {
-        return this.Http
-            .put("/posts/" + postId + "/publishing")
-            .then(this.getData);
+        return this.Http.put("/posts/" + postId + "/publishing").then(this.getData);
     };
     PostService.updateExistingPost = function (postId, post) {
-        return this.Http
-            .put("/posts/" + postId, post)
-            .then(this.getData);
+        return this.Http.put("/posts/" + postId, post).then(this.getData);
+    };
+    PostService.deleteExistingPost = function (postId) {
+        return this.Http.delete("/posts/" + postId).then(this.getData);
+    };
+    PostService.deactivateExistingPost = function (postId) {
+        return this.Http.delete("/posts/" + postId + "/activation").then(this.getData);
     };
     return PostService;
 }(Service_1.default));

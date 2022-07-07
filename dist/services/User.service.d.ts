@@ -1,3 +1,4 @@
+import { User } from "../@types";
 import Service from "../Service";
 declare class UserService extends Service {
     static getAllEditors(): Promise<{
@@ -99,5 +100,158 @@ declare class UserService extends Service {
         canBeDeactivated: boolean;
         canSensitiveDataBeUpdated: boolean;
     }>;
+    static getAllUsers(): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        avatarUrls: {
+            default: string;
+            small: string;
+            medium: string;
+            large: string;
+        };
+        role: "EDITOR" | "ASSISTANT" | "MANAGER";
+        active: boolean;
+        createdAt: string;
+        canBeActivated: boolean;
+        canBeDeactivated: boolean;
+        canSensitiveDataBeUpdated: boolean;
+    }[]>;
+    static updateExistingUser(userId: number, userData: User.Input): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        avatarUrls: {
+            default: string;
+            small: string;
+            medium: string;
+            large: string;
+        };
+        bio: string;
+        role: "EDITOR" | "ASSISTANT" | "MANAGER";
+        birthdate: string;
+        phone: string;
+        taxpayerId: string;
+        pricePerWord: number;
+        active: boolean;
+        createdAt: string;
+        bankAccount: {
+            bankCode: string;
+            agency: string;
+            number: string;
+            digit: string;
+            type: "SAVING" | "CHECKING";
+        };
+        location: {
+            country: string;
+            state: string;
+            city: string;
+        };
+        skills: {
+            name: string;
+            percentage: number;
+        }[] | null;
+        metrics: {
+            weeklyEarnings: number;
+            monthlyEarnings: number;
+            lifetimeEarnings: number;
+            weeklyWords: number;
+            monthlyWords: number;
+            lifetimeWords: number;
+        };
+        updatedAt: string;
+        updatedBy: {
+            id: number;
+            name: string;
+            avatarUrls: {
+                default: string;
+                small: string;
+                medium: string;
+                large: string;
+            };
+        };
+        createdBy: {
+            id: number;
+            name: string;
+            avatarUrls: {
+                default: string;
+                small: string;
+                medium: string;
+                large: string;
+            };
+        };
+        canBeActivated: boolean;
+        canBeDeactivated: boolean;
+        canSensitiveDataBeUpdated: boolean;
+    }>;
+    static insertNewUser(userData: User.Input): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        avatarUrls: {
+            default: string;
+            small: string;
+            medium: string;
+            large: string;
+        };
+        bio: string;
+        role: "EDITOR" | "ASSISTANT" | "MANAGER";
+        birthdate: string;
+        phone: string;
+        taxpayerId: string;
+        pricePerWord: number;
+        active: boolean;
+        createdAt: string;
+        bankAccount: {
+            bankCode: string;
+            agency: string;
+            number: string;
+            digit: string;
+            type: "SAVING" | "CHECKING";
+        };
+        location: {
+            country: string;
+            state: string;
+            city: string;
+        };
+        skills: {
+            name: string;
+            percentage: number;
+        }[] | null;
+        metrics: {
+            weeklyEarnings: number;
+            monthlyEarnings: number;
+            lifetimeEarnings: number;
+            weeklyWords: number;
+            monthlyWords: number;
+            lifetimeWords: number;
+        };
+        updatedAt: string;
+        updatedBy: {
+            id: number;
+            name: string;
+            avatarUrls: {
+                default: string;
+                small: string;
+                medium: string;
+                large: string;
+            };
+        };
+        createdBy: {
+            id: number;
+            name: string;
+            avatarUrls: {
+                default: string;
+                small: string;
+                medium: string;
+                large: string;
+            };
+        };
+        canBeActivated: boolean;
+        canBeDeactivated: boolean;
+        canSensitiveDataBeUpdated: boolean;
+    }>;
+    static activateExistingUser(userId: number): Promise<{}>;
+    static deactivateExistingUser(userId: number): Promise<{}>;
 }
 export default UserService;

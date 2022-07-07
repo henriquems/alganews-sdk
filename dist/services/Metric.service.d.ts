@@ -9,5 +9,15 @@ declare class MetricService extends Service {
         totalAmount: number;
         totalPlatformAverageAmount: number;
     }[]>;
+    static getMonthlyRevenuesExpenses(): Promise<{
+        yearMonth: string;
+        totalRevenues: number;
+        totalExpenses: number;
+    }[]>;
+    static getMonthlyRevenuesExpensesChartJs(): Promise<{
+        yearMonth: string;
+        totalRevenues: number;
+        totalExpenses: number;
+    }[]>;
 }
 export default MetricService;

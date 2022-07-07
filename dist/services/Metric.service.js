@@ -34,6 +34,22 @@ var MetricService = /** @class */ (function (_super) {
             .get('/metrics/editor/monthly-earnings')
             .then(this.getData);
     };
+    MetricService.getMonthlyRevenuesExpenses = function () {
+        return this.Http
+            .get('/metrics/monthly-revenues-expenses', {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(this.getData);
+    };
+    MetricService.getMonthlyRevenuesExpensesChartJs = function () {
+        return this.Http
+            .get('/metrics/monthly-revenues-expenses', {
+            headers: {
+                'Content-Type': 'application/vnd.alganews.chartjs+json'
+            }
+        }).then(this.getData);
+    };
     return MetricService;
 }(Service_1.default));
 exports.default = MetricService;

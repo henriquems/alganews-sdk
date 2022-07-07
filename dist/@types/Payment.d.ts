@@ -6,4 +6,13 @@ export declare namespace Payment {
     type Preview = AlgaNews.components['schemas']['PaymentPreview'];
     type PreviewInput = AlgaNews.components['schemas']['PaymentPreviewInput'];
     type Paginated = AlgaNews.components['schemas']['PaymentsPaginated'];
+    type PostWithEarnings = AlgaNews.components['schemas']['PostWithEarnings'];
+    type Query = {
+        payeeId?: number;
+        payeeEmail?: number;
+        scheduledToMonth?: string;
+        page?: number;
+        size?: number;
+        sort: [keyof Summary, 'asc' | 'desc'];
+    };
 }

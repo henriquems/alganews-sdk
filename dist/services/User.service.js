@@ -39,6 +39,23 @@ var UserService = /** @class */ (function (_super) {
             .get("/users/" + userId)
             .then(this.getData);
     };
+    UserService.getAllUsers = function () {
+        return this.Http
+            .get('/users')
+            .then(this.getData);
+    };
+    UserService.updateExistingUser = function (userId, userData) {
+        return this.Http.put("/users/" + userId, userData).then(this.getData);
+    };
+    UserService.insertNewUser = function (userData) {
+        return this.Http.post('/users', userData).then(this.getData);
+    };
+    UserService.activateExistingUser = function (userId) {
+        return this.Http.put("/users/" + userId + "/activation").then(this.getData);
+    };
+    UserService.deactivateExistingUser = function (userId) {
+        return this.Http.delete("/users/" + userId + "/activation").then(this.getData);
+    };
     return UserService;
 }(Service_1.default));
 exports.default = UserService;

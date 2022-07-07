@@ -177,5 +177,7 @@ declare class PostService extends Service {
         canBeDeleted: boolean;
         canBeEdited: boolean;
     }>;
+    static deleteExistingPost(postId: number): Promise<{}>;
+    static deactivateExistingPost(postId: number): Promise<{}>;
 }
 export default PostService;
