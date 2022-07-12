@@ -8,6 +8,7 @@ export { default as PaymentService } from './services/Payment.service';
 export { default as CashFlowService } from './services/CashFlow.service';
 export { default as generateQueryString } from './utils/generateQueryString';
 export { default as getEditorDescription } from './utils/getEditorDescription';
+export * from './@types';
 declare const _default: {
     services: typeof services;
     utils: typeof utils;
